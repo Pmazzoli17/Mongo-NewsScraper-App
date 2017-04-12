@@ -30,9 +30,13 @@ app.use(express.static(__dirname + '/public'));
 // Override with POST having ?_method=DELETE
 app.use(methodOverride('_method'));
 
-// Database configuration with mongoose (Local)
-mongoose.connect("mongodb://localhost/HWmongoose");
+// Database configuration with mongoose (Heroku)
+mongoose.connect('mongodb://heroku_sthxcl68:i45cl0mvm0tm55atonh355s7mn@ds159050.mlab.com:59050/heroku_sthxcl68');
 var db = mongoose.connection;
+
+// // Database configuration with mongoose (Local)
+// mongoose.connect("mongodb://localhost/HWmongoose");
+// var db = mongoose.connection;
 
 // Show any mongoose errors
 db.on('error', function(error) {
