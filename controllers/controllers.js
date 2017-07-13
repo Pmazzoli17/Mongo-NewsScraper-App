@@ -15,13 +15,20 @@ module.exports = function(app) {
         var articlesArray = [];
 
         // Make a request for the news section of google
-        request('https://news.google.com/', function(err, res2, html) {
-
+        request('https://news.google.com/news/?ned=us&hl=en', function(err, res2, html) {
             // Load the html body from request into cheerio
             var $ = cheerio.load(html);
 
+        // request('https://news.google.com/', function(err, res2, html) {
+
+        //     // Load the html body from request into cheerio
+        //     var $ = cheerio.load(html);
+
             // For each h2 element with a 'esc-lead-article-title' class
-            $('h2.esc-lead-article-title').each(function(i, element) {
+            // $('h2.esc-lead-article-title').each(function(i, element) {
+
+              // For each p element with a 'title' class
+            $('a.nuEeue.hzdq5d.ME7ew').each(function(i, element) {
 
                 // Define a articleObj variable
                 var articleObj = {};
